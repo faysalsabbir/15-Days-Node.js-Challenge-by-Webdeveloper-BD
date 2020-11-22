@@ -37,7 +37,7 @@ process.stdin.on('data', data => {
     if(myQuestions[answeres.length].correctAnswer == data.toString().trim()) {
         answeres.push('Correct')
     } else {
-        answeres.push('Wrong')
+        answeres.push('Incorrect')
     }
     if (answeres.length < myQuestions.length) {
         process.stdout.write(myQuestions[answeres.length].question + '\n')
@@ -50,11 +50,11 @@ process.on('exit', () => {
 
     process.stdout.write('Your quiz result is \n')
     let correct = 0
-    let wrong = 0
+    let Incorrect = 0
 
     answeres.forEach((result, index) => {
-        result == 'Correct' ? correct += 1 : wrong += 1
+        result == 'Correct' ? correct += 1 : Incorrect += 1
     })
 
-    process.stdout.write(`Correct : ${correct} \n Wrong : ${wrong}\n`)
+    process.stdout.write(`Correct : ${correct} \n Incorrect : ${Incorrect}\n`)
 })
